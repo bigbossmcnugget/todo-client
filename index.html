@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ToDo klient - Jegor Onoprijuk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ToDo klient</h1>
+    <p class="sub">Jegor Onoprijuk, TA-24B &middot; Hajusrakenduste alused</p>
+    <div id="userbar" hidden>
+      <span id="who"></span>
+      <button id="logout" type="button">Logi välja</button>
+    </div>
+  </header>
+
+  <main>
+    <p id="message" role="alert" hidden></p>
+
+    <!-- Sisselogimine / registreerimine -->
+    <section id="auth">
+      <div class="tabs">
+        <button id="tab-login" type="button" class="active">Logi sisse</button>
+        <button id="tab-register" type="button">Registreeri</button>
+      </div>
+
+      <form id="login-form">
+        <label>Kasutajanimi <input name="username" required maxlength="64" autocomplete="username"></label>
+        <label>Parool <input name="password" type="password" required autocomplete="current-password"></label>
+        <button type="submit">Logi sisse</button>
+      </form>
+
+      <form id="register-form" hidden>
+        <label>Kasutajanimi <input name="username" required maxlength="64" autocomplete="username"></label>
+        <label>Eesnimi <input name="firstname" maxlength="64"></label>
+        <label>Perekonnanimi <input name="lastname" maxlength="64"></label>
+        <label>Parool <input name="password" type="password" required minlength="4" autocomplete="new-password"></label>
+        <button type="submit">Registreeri</button>
+      </form>
+    </section>
+
+    <!-- Ülesannete nimekiri -->
+    <section id="todo" hidden>
+      <form id="add-form">
+        <input name="title" placeholder="Uus ülesanne" required maxlength="255">
+        <input name="desc" placeholder="Kirjeldus (valikuline)">
+        <button type="submit">Lisa</button>
+      </form>
+      <p id="count"></p>
+      <ul id="list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
